@@ -13,6 +13,9 @@ for i in "${!ary[@]}"
         if [[ "${ary[$i]}" == "BROWSER"* ]]
         	then
         	browser=${ary[$i]:8}
+        elif [[ "${ary[$i]}" == "-vBROWSER"* ]]
+        	then
+        	browser=${ary[$i]:10}
         fi
     done
 
@@ -20,6 +23,10 @@ browsers=("gc" "GC" "chrome" "CHROME" "Chrome" "googlechrome" "GOOGLECHROME" "Go
 if [[ "${browsers[@]}" =~ "${browser}" ]]
 	then
 	node_type="chrome"
+	shm=""
+elif [[ "${browser}" == "phantomjs" ]]
+	then
+	node_type="phantomjs"
 	shm=""
 else
 	node_type="firefox"
@@ -31,7 +38,7 @@ if [[ $process == -p* ]]
 	then
 	p=${process:2}
 else
-	echo "provide number of processes"
+	echo "Error: provide number of processes"
 	exit
 fi
 
