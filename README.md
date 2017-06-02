@@ -1,6 +1,6 @@
 # robot-framework-local-selenium-grid
 
-- Ensure that you have docker installed and selenium/hub and node-chrome, node-firefox images in your local machine
+- Ensure that you have docker daemon running and selenium/hub and node-chrome, node-firefox images in your local machine
 - Download bash file, place it in your default path or add the path to file to bash profile
 - Provide required permissions to the file chmod +x grid.sh
 - cd to your robot test directory
