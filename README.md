@@ -6,7 +6,7 @@
 - cd to your robot test directory
 - Run your usual robot tests using grid. Eg grid.sh -p 4 -d results --include=smoke -v BROWSER:gc  -v REMOTE_URL:http://localhost:5700/wd/hub Tests
 - -p here means the number of processes. Passing -p 1 will run test using pybot and -p 2 and above will trigger tests using pabot.
-- Make sure you have a BROWSER variable in your suite and from pass it as an argument from command line. Pass the value as googlechrome gc, chrome, Chrome, ff, firefox etc
+- Make sure you have a BROWSER variable in your suite and pass it as an argument from command line. Pass the value as googlechrome gc, chrome, Chrome, ff, firefox etc
 - Pass remote url http://localhost:5700/wd/hub from commandline.
 
 
