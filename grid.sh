@@ -16,7 +16,8 @@ for i in "${!ary[@]}"
         fi
     done
 
-if [[ $browser == "gc" || $browser == "GC" || $browser == "chrome" || $browser == "CHROME" || $browser == "Chrome" || $browser == "googlechrome" || $browser == "GOOGLECHROME" ]]
+browsers=("gc" "GC" "chrome" "CHROME" "Chrome" "googlechrome" "GOOGLECHROME" "GoogleChrome")
+if [[ "${browsers[@]}" =~ "${browser}" ]]
 	then
 	node_type="chrome"
 	shm=""
