@@ -13,20 +13,8 @@ for i in "${!ary[@]}"
         if [[ "${ary[$i]}" == "BROWSER"* ]]
         	then
         	browser=${ary[$i]:8}
-        elif [[ "${ary[$i]}" == *"Tests"* || "${ary[$i]}" == *"tests"* ]]
-        	then
-        	# Replace test path with remote url
-        	test_path="${ary[$i]}"
-        	ary[$i]="-v REMOTE_URL:http://localhost:5700/wd/hub"
         fi
     done
-
-# Append Test path to array
-ary+=(${test_path})
-
-# Join array to single string
-arg=$(printf " %s" "${ary[@]}")
-arg=${arg:1}
 
 if [[ $browser == "gc" ]]
 	then
@@ -62,10 +50,10 @@ for i in $(seq 1 $p)
 # Run using pybot or pabot
 if [[ $p -eq "1" ]]
 	then
-	pybot_cmd="pybot $arg"
+	pybot_cmd="pybot $arguments"
 	eval ${pybot_cmd}
 else
-	pabot_cmd="pabot --processes $p $arg"
+	pabot_cmd="pabot --processes $p $arguments"
 	echo ${pabot_cmd}
 	eval ${pabot_cmd}
 fi
