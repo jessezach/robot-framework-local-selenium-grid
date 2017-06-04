@@ -10,23 +10,19 @@ ary=($arguments)
 # Parse browser
 for i in "${!ary[@]}"
     do
-        if [[ "${ary[$i]}" == "BROWSER"* ]]
-        	then
+        if [[ "${ary[$i]}" == "BROWSER"* ]]; then
         	browser=${ary[$i]:8}
-        elif [[ "${ary[$i]}" == "-vBROWSER"* ]]
-        	then
+        elif [[ "${ary[$i]}" == "-vBROWSER"* ]]; then
         	browser=${ary[$i]:10}
         fi
     done
 
 browsers=("gc" "GC" "chrome" "CHROME" "Chrome" "googlechrome" "GOOGLECHROME" "GoogleChrome")
 shm=""
-if [[ "${browsers[@]}" =~ "${browser}" ]]
-	then
+if [[ "${browsers[@]}" =~ "${browser}" ]]; then
 	node_type="chrome"
 	
-elif [[ "${browser}" == "phantomjs" ]]
-	then
+elif [[ "${browser}" == "phantomjs" ]]; then
 	node_type="phantomjs"
 
 else
@@ -35,8 +31,7 @@ else
 fi
 
 # Get number of processes
-if [[ $process == -p* ]]
-	then
+if [[ $process == -p* ]]; then
 	p=${process:2}
 else
 	echo "Error: provide number of processes"
@@ -57,8 +52,7 @@ for i in $(seq 1 $p)
 	done
 
 # Run using pybot or pabot
-if [[ $p -eq "1" ]]
-	then
+if [[ $p -eq "1" ]]; then
 	pybot_cmd="pybot $arguments"
 	eval ${pybot_cmd}
 else
