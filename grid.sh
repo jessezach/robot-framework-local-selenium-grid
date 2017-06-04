@@ -20,14 +20,15 @@ for i in "${!ary[@]}"
     done
 
 browsers=("gc" "GC" "chrome" "CHROME" "Chrome" "googlechrome" "GOOGLECHROME" "GoogleChrome")
+shm=""
 if [[ "${browsers[@]}" =~ "${browser}" ]]
 	then
 	node_type="chrome"
-	shm=""
+	
 elif [[ "${browser}" == "phantomjs" ]]
 	then
 	node_type="phantomjs"
-	shm=""
+
 else
 	node_type="firefox"
 	shm="--shm-size=384m"
