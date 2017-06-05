@@ -47,12 +47,12 @@ echo "Starting nodes"
 for i in $(seq 1 $p)
 	do
 		node_cmd="docker run -d ${shm} -e 'TZ=Asia/Calcutta' --link selenium-hub:hub selenium/node-${node_type}"
-		eval  ${node_cmd}
+		eval ${node_cmd}
 		sleep 0.5
 	done
 
 # Run using pybot or pabot
-if [[ $p -eq "1" ]]; then
+if [[ $p -le "1" ]]; then
 	pybot_cmd="pybot $arguments"
 	eval ${pybot_cmd}
 else
