@@ -39,16 +39,16 @@ else
 fi
 
 # Start hub and nodes
-hub_cmd="docker run -d --shm-size=512m -e 'TZ=Asia/Calcutta' -p 5700:4444 --name selenium-hub selenium/hub"
+hub_cmd="docker run -d -e 'TZ=Asia/Calcutta' -p 5700:4444 --name selenium-hub selenium/hub"
 echo "Starting Hub"
 eval ${hub_cmd}
 
 echo "Starting nodes"
 for i in $(seq 1 $p)
 	do
-		node_cmd="docker run -d ${shm} -e 'TZ=Asia/Calcutta' --link selenium-hub:hub selenium/node-${node_type}"
+		node_cmd="docker run -d ${shm} -e 'TZ=Asida/Calcutta' --link selenium-hub:hub selenium/node-${node_type}"
 		eval ${node_cmd}
-		sleep 0.5
+		sleep 0.25
 	done
 
 # Run using pybot or pabot
